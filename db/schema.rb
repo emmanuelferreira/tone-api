@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_124910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "instruments_reservations", force: :cascade do |t|
+  create_table "rentals_reservations", force: :cascade do |t|
     t.bigint "rental_id", null: false
     t.bigint "reservation_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2020_12_24_124910) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "instruments_reservations", "rentals"
-  add_foreign_key "instruments_reservations", "reservations"
+  add_foreign_key "rentals_reservations", "rentals"
+  add_foreign_key "rentals_reservations", "reservations"
   add_foreign_key "rentals", "rental_categories"
   add_foreign_key "rentals", "users"
   add_foreign_key "reservations", "statuses"
